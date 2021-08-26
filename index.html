@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端禁止页面缩放的meta标签 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不凡导航</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./js/animate/animatenew.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="./js/swiper/swiper.min.css">
+    <link rel="stylesheet" href="./css/导航样式.css">
+    <link rel="stylesheet" href="./css/响应式.css">
+</head>
+
+<body>
+    <!-- <div class="header"> -->
+        <!-- 版心 -->
+        <!-- <div class="header-c center wow animate__fadeInDown">
+            <a href="" class="logo"></a>
+            <ul class="nav">
+                <li class="nav-list">
+                    <a class="fir" href="">首页</a>
+                    <span class="line"></span>
+                </li>
+                <li class="nav-list">
+                    <a class="fir" href="">前端开发</a>
+                    <span class="line"></span>
+                </li>
+                <li class="nav-list">
+                    <a class="fir" href="">UI设计</a>
+                    <span class="line"></span>
+                </li>
+                <li class="nav-list">
+                    <a class="fir" href="">不凡说</a>
+                    <span class="line"></span>
+                </li>
+                <li class="active  nav-list">
+                    <a class="fir" href="">导航</a>
+                    <span class="line"></span>
+                </li>
+            </ul>
+            <div class="fa fa-list-ul"></div>
+        </div>
+    </div> -->
+    <div class="content">
+        <!-- 版心 -->
+        <div class="content-c center">
+            <!-- <ul class="box">
+                <li class="title-list"><span class="title"></span></li>
+                <li class="a-block">
+                    <a href="">
+                        <div class="a-left"></div>
+                        <div class="a-right">
+                        <p class="title"></p>
+                        <p class="dec"></p>
+                        </div>
+                    </a>
+                </li>
+            </ul> -->
+            <!-- <img src="./img/nav-new-img/" alt=""> -->
+        </div>
+    </div>
+    <div class="footer">
+        <!-- 版心 -->
+        <div class="footer-c center">
+            <div class="left">
+                <h3 class="wow wow animate__fadeInDown">联系我们</h3>
+                <h4 class="wow wow animate__fadeInDown">CONTACT</h4>
+                <dl class="wow wow animate__fadeInDown">
+                    <dt>非凡工作室</dt>
+                    <dd>邮编：1000000 </dd>
+                    <dd>电话：18838180363</dd>
+                    <dd>邮箱：feifan@qq.com</dd>
+                    <dd>地点：中国河南省郑州市 / 郑东新区金水东路绿地新都会 / 6号楼1104</dd>
+                    <dd>
+                        <img src="img/QQ.png" alt="">
+                        <img src="img/微信.png" alt="">
+                        <img src="img/微博 .png" alt="">
+                    </dd>
+                    <dd>友情链接: 站酷 花瓣 蓝湖 爱果果 github Copyright© 2017-2020 豫ICP备 17015347号-1</dd>
+                </dl>
+            </div>
+            <div class="right wow animate__flipInY">
+                <form action="#">
+                    <div class="bigbox">
+                        <div class="box">
+                            <p> 姓名</p><input class="name ipt" type="text">
+                        </div>
+                        <div class="box">
+                            <p> 邮箱</p><input class="email ipt" type="text"></div>
+                        <div class="box">
+                            <p> 电话</p><input class="phone ipt" type="text">
+                        </div>
+                        <div class="box box-text">
+                            <p>内容</p><input class="text ipt" type="text">
+                        </div>
+                        <div class="btu">
+                            <button>提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 回到顶部 -->
+    <div class="return-top wow animate__backInUp">
+        <span class="fa fa-dove"></span>
+    </div>
+
+</body>
+<script src="./js/jquery/jquery.js"></script>
+<script src="./js/jquery/jquery.easing.js"></script>
+<script src="./js/jquery/jquery.color.js"></script>
+<script src="./js/animate/wow.min.js"></script>
+<script src="./js/swiper/swiper.min.js"></script>
+<script src="./data/nav_new.js"></script>
+<script>
+    console.log(navData);
+    // 遍历data数据
+    // 拼串
+    var str = "";
+    // console.log(navData.linkBlocks.length);
+    // console.log(navData.linkBlocks[0]);
+    console.log(navData.linkBlocks[0].blocks[0].img);
+    var linkBlocks = navData.linkBlocks;
+    for (var i = 0; i < linkBlocks.length; i++) {
+        str += `<ul class="box">
+            <li class="title-list wow animate__lightSpeedInLeft"><span class="title">${linkBlocks[i].name}</span></li>
+                <li class="a-block">`;
+        var blocks = navData.linkBlocks[i].blocks;
+        for (var j = 0; j < blocks.length; j++) {
+            str += `<a href="${blocks[j].href}" class=" wow animate__fadeInDown">
+                        <div class="a-left" style="background:url(./img/nav-new-img/${blocks[j].img}) center no-repeat;background-size: 36px 36px;"></div>
+                        <div class="a-right">
+                        <p class="title">${blocks[j].title}</p>
+                        <p class="dec">${blocks[j].desc}</p>
+                        </div>
+                    </a>`
+        }
+        str += `</li></ul>`;
+    }
+    // 将它插入content-c里面
+    $(".content-c").html(str);
+</script>
+<!-- wow动画 -->
+<script>
+    new WOW({
+        boxClass: 'wow',
+        animateClass: 'animate__animated',
+        offset: 0,
+        mobile: true,
+        live: true
+    }).init();
+</script>
+<!-- 响应式头部导航设置 -->
+<script>
+    $(".fa.fa-list-ul").on("click", function() {
+        $(this).toggleClass("fa-list-ul");
+        $(this).toggleClass("fa-sort-amount-up");
+        // 当如果有fa-list-ul 点击打开nav
+        $(this).hasClass("fa-sort-amount-up") && $(".header-c .nav").animate({
+            height: 320
+        }) && $(".header-c .nav .nav-list").css("display", "block");
+        $(this).hasClass("fa-list-ul") && $(".header-c .nav").animate({
+            height: 0
+        }) && $(".header-c .nav .nav-list").css("display", "none");
+        // $(this).hasClass("fa-list-ul") && $(".header-c .nav").css("display", "block");
+        // $(this).hasClass("fa-sort-amount-up") && $(".header-c .nav").css("display", "none");
+    })
+</script>
+<!-- 回到顶部 -->
+<script type="text/javascript">
+    // 页面顺滑滚动的方式:
+    //     1. html { scroll-behavior: smooth; }
+    //     2. window.scroll/By({ top: xx, left: xx, behavior: "smooth" })
+
+    //console.log(window.pageYOffset);
+    // 监听滚动事件
+    $(function() {
+        window.onscroll = function() {
+            var sct = window.pageYOffset;
+            // console.log(sct);
+            $(".return-top").css({
+                display: sct >= 800 ? "block" : "none"
+            });
+        }
+    });
+
+    $(".return-top").on("click", function() {
+        // window.scroll(0,0);
+        // window.scroll({ top: 0 });
+        window.scroll({
+            top: 0,
+            behavior: "smooth"
+        });
+    })
+</script>
+
+</html>

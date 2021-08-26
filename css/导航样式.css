@@ -1,0 +1,340 @@
+  /* 回到顶部的样式 */
+  
+  .return-top {
+      /* 改变文字的排列方向,改为垂直方向后,text-align/line-height 控制方向也跟着改变 */
+      /* writing-mode: vertical-lr; */
+      position: fixed;
+      bottom: 100px;
+      right: 50px;
+      /* transform: rotate(-90deg); */
+      font-size: 55px;
+      cursor: pointer;
+      display: none;
+      transition: all .5s;
+  }
+  /* 版心样式 */
+  
+  body {
+      background-color: rgb(243, 244, 248);
+  }
+  
+  .center {
+      width: 1200px;
+      height: 100%;
+      margin: 0 auto;
+      /* background-color: #fff; */
+  }
+  /* 头部样式 */
+  
+  .header {
+      background-color: rgb(240, 248, 255);
+      position: sticky;
+      width: 100%;
+      height: 76px;
+      top: 0;
+      z-index: 8888;
+      transition: all .6s;
+  }
+  
+  .header-c {
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      background-color: aliceblue;
+  }
+  /* 头部字体图标样式 */
+  
+  .fa.fa-list-ul,
+  .fa.fa-sort-amount-up {
+      line-height: 76px;
+      display: none;
+  }
+  
+  .header.active {
+      position: sticky;
+      width: 100%;
+      height: 66px;
+      z-index: 8888;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 1px 10px rgb(0 0 0 / 30%);
+  }
+  
+  .header.active .header-c .logo {
+      width: 120;
+      height: 76px;
+  }
+  
+  .header.active .header-c .nav {
+      line-height: 66px;
+  }
+  
+  .header-c .logo {
+      display: block;
+      float: left;
+      width: 121px;
+      height: 100%;
+      background: url(../img/LOGO.png) no-repeat center;
+      background-size: 100%;
+  }
+  
+  .header-c .nav {
+      float: right;
+      width: fit-content;
+      text-align: center;
+      line-height: 76px;
+  }
+  
+  .header-c .nav .nav-list {
+      position: relative;
+      width: 65px;
+      margin: 0 38px;
+      float: left;
+  }
+  
+  .header-c .nav .nav-list>a {
+      font-size: 16px;
+      font-weight: 400;
+      color: #818181;
+  }
+  
+  .header-c .nav .line {
+      display: block;
+      width: 70%;
+      height: 2px;
+      margin: 0 auto;
+      margin-top: -18px;
+      background-color: #00DAED;
+      opacity: 0;
+  }
+  
+  .header-c .nav .nav-list:hover a.fir {
+      font-size: 16px;
+      font-weight: 400;
+      color: #00DAED;
+  }
+  
+  .header-c .nav .nav-list:hover .line {
+      opacity: 1;
+  }
+  
+  .header-c .nav .nav-list .top-bar:hover+.line {
+      opacity: 0;
+  }
+  
+  .header-c .nav .nav-list.active a.fir,
+  .header-c .nav .nav-list.active span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #00DAED;
+  }
+  
+  .header-c .nav .nav-list.active .line {
+      opacity: 1;
+  }
+  /* content样式 */
+  
+  .content-c {
+      display: flex;
+      /* background-color: #bfa; */
+      align-content: center;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  /* ul样式 */
+  .content-c .box {
+      margin: 10px auto;
+      background-color: #fff;
+      border-radius: 6px;
+  }
+  /* ul头部标题样式 */
+  
+  .content-c .box .title-list {
+      width: calc(100% - 60px);
+      height: 30px;
+      font-size: 28px;
+      padding-top: 20px;
+      margin: 0 30px;
+      font-weight: bolder;
+      border-bottom: 2px solid #f2f4f7;
+      overflow: hidden;
+  }
+  
+  .content-c .box .title-list>.title {
+      display: block;
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: 24px 24px;
+      text-indent: 40px;
+      line-height: 30px;
+      color: transparent;
+      background-image: linear-gradient(to right, #f00 0%, #ff0 10%, #0f0 20%, #0ff 30%, #f0f 40%, #00f 50%, #ff9000 60%, #9000ff 70%, #f9000f 80%, #f99912 90%, #f123f4 100%);
+      /* 以文字为裁剪范围 */
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: move 6s ease-in-out infinite alternate;
+  }
+  /* ul第二个大标签样式 */
+  
+  .content-c .box .a-block {
+      display: flex;
+      width: 1200px;
+      padding-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+  }
+  /* a块样式 */
+  
+  .content-c .box .a-block a {
+      /* display: flex; */
+      position: relative;
+      width: 262px;
+      height: 80px;
+      margin-left: 30px;
+      box-sizing: border-box;
+      border: 1px solid #f2f4f7;
+      border-radius: 4px;
+      margin-top: 20px;
+      /* flex-wrap: wrap; */
+      transition: all .4s ease;
+  }
+  
+  .content-c .box .a-block a:hover {
+      box-shadow: 0 20px 16px -16px rgba(174, 174, 174, .3);
+      transform: translateY(-6px);
+  }
+  /* a 内部左边图片样式 */
+  
+  .content-c .a-block a .a-left {
+      width: 80px;
+      height: 100%;
+  }
+  /* a 内部右边文字介绍样式 */
+  
+  .content-c .a-block a .a-right {
+      position: absolute;
+      top: 50%;
+      left: 86px;
+      transform: translate(0, -50%);
+      width: 140px;
+      height: fit-content;
+      font-weight: bolder;
+      color: transparent;
+      background-image: linear-gradient(to right, #f00 0%, #ff0 10%, #0f0 20%, #0ff 30%, #f0f 40%, #00f 50%, #ff9000 60%, #9000ff 70%, #f9000f 80%, #f99912 90%, #f123f4 100%);
+      /* 以文字为裁剪范围 */
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: move 6s ease-in-out infinite alternate;
+  }
+  /* a 内部右边文字介绍里的title样式 */
+  
+  .content-c .a-block a .title {
+      font-size: 16px;
+      height: 20px;
+      line-height: 20px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
+  /* a 内部右边文字介绍里的dec样式 */
+  
+  .content-c .a-block a .dec {
+      /* font-size: 16px; */
+      height: 20px;
+      line-height: 20px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
+  
+  @keyframes move {
+      from {
+          background-position-x: 0;
+      }
+      to {
+          background-position-x: 100%;
+      }
+  }
+  /* footer样式 */
+  
+  .footer {
+      background-color: rgb(40, 44, 53);
+  }
+  
+  .footer-c {
+      background-color: rgb(40, 44, 53);
+      display: flex;
+      justify-content: space-between;
+      height: fit-content;
+  }
+  
+  .footer-c .left,
+  .footer-c .right {
+      width: 45%;
+      margin-top: 40px;
+      margin-left: 30px;
+  }
+  /* 底部左边样式 */
+  
+  .footer-c .left h3 {
+      font-size: 24px;
+      font-weight: 400;
+      color: #6b6060;
+  }
+  
+  .footer-c .left h4 {
+      font-size: 14px;
+      font-weight: 400;
+      color: #8f8686;
+      margin-top: 20px;
+      margin-bottom: 76px;
+  }
+  
+  .footer-c .left dt {
+      margin-bottom: 50px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #5D5D5D;
+  }
+  
+  .footer-c .left dd {
+      line-height: 30px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #9FA2A2;
+  }
+  
+  .footer-c .left dd img {
+      margin: 0 10px;
+  }
+  /* 底部表单样式 */
+  
+  .footer-c .right .box .ipt {
+      width: 60%;
+      border: none;
+      border-bottom: 1px solid rgba(112, 109, 109, .6);
+      overflow: hidden;
+      outline: none;
+  }
+  
+  .footer-c .right .box .text.ipt {
+      width: 100%;
+  }
+  
+  .footer-c .right .box p {
+      margin: 20px auto;
+      font-size: 14px;
+      font-weight: 400;
+      color: #BFBDBD;
+  }
+  
+  .footer-c .right .btu button {
+      text-align: center;
+      width: 50px;
+      height: 30px;
+      margin-top: 20px;
+      line-height: 30px;
+      color: rgba(224, 224, 224, 1);
+      background-color: rgba(71, 70, 70, 1);
+  }

@@ -1,0 +1,96 @@
+/* md */
+
+@media (max-width: 1200px) and (min-width: 992px) {
+    .content-c,
+    ul,
+    .content-c .box .a-block {
+        width: 970px;
+    }
+    .content-c .box .a-block a {
+        width: 24%;
+        margin-right: 2%;
+    }
+    .content-c .box .a-block {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/* sm */
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .content-c,
+    ul,
+    .content-c .box .a-block {
+        width: 700px;
+    }
+    .content-c .box .a-block a {
+        width: 40%;
+    }
+    .content-c .box .a-block {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+/* xs */
+
+@media (max-width: 768px) {
+    .content-c,
+    ul,
+    .content-c .box .a-block {
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box
+    }
+    .content-c .box .a-block a {
+        width: 100%;
+    }
+    .content-c .box .a-block {
+        display: flex;
+        justify-content: center;
+    }
+    /* 响应式header样式 */
+    .header-c {
+        position: relative;
+        height: 76px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        background-color: aliceblue;
+    }
+    .header-c .nav {
+        position: absolute;
+        width: 100%;
+        top: 76px;
+        left: 0;
+        text-align: center;
+        /* height: fit-content; */
+        height: 0;
+        background-color: rgba(227, 227, 227, .8);
+        text-align: center;
+        line-height: 76px;
+    }
+    .header-c .nav .nav-list {
+        position: relative;
+        width: 65px;
+        /* margin: 0 200px; */
+        display: none;
+        float: none;
+    }
+    .fa.fa-list-ul,
+    .fa.fa-sort-amount-up {
+        line-height: 76px;
+        display: block;
+        position: absolute;
+        font-size: 20px;
+        right: 0;
+    }
+    /* 底部样式 */
+    .footer-c {
+        width: 100%;
+        flex-direction: column;
+    }
+}
